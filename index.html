@@ -196,10 +196,17 @@
         }).add('h', ['one', 'two', 'three', 'one']).auto(5000, 'right');
     </script>
     <script>
-        // Provide your access token
         L.mapbox.accessToken = 'pk.eyJ1IjoicmlhbGF0IiwiYSI6ImJlZDkwOWYwNzI4ZmFmN2NiMjBjMmM5NmM4MGQ1ZDk2In0.p8S38Ol9PLNEJ5UWnTUQXQ';
-        // Create a map in the div #map
-        L.mapbox.map('section4', 'rialat.808cbf8c');
+        var map = L.mapbox.map('section4', 'rialat.808cbf8c', {
+          zoomControl: true
+        }).addControl(L.mapbox.shareControl());
+        
+        
+        
+        map.scrollWheelZoom.disable();
+
+        // Disable tap handler, if present.
+        if (map.tap) map.tap.disable();
     </script>
 
     
